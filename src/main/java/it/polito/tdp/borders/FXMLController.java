@@ -38,6 +38,7 @@ public class FXMLController {
     	txtResult.clear();
     	
     	int anno;
+    	
 		try {
 			anno = Integer.parseInt(txtAnno.getText());
 			if ((anno < 1816) || (anno > 2016)) {
@@ -57,6 +58,15 @@ public class FXMLController {
     
     @FXML
 	void doTrovaRaggiungibili(ActionEvent event) {
+    	
+    	txtResult.clear();
+    	
+    	Country start = cmbNazione.getSelectionModel().getSelectedItem();
+    	
+    	List<Country> l = model.doIteratore(start);
+    	
+    	txtResult.appendText(l.toString());
+    	
 	}
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
